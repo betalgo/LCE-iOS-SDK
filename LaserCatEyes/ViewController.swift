@@ -18,8 +18,7 @@ class ViewController: UIViewController {
         AF.request("https://example.com/foo/bar.json").response { (data: AFDataResponse<Data?>) in
             return
         }
-        UIDevice.current
-        LaserCatManager.shared.sendDeviceInfoToServer()
+//        LaserCatManager.shared.sendDeviceInfoToServer()
     }
     
     

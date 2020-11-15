@@ -7,11 +7,12 @@ import Foundation
 
 // MARK: - ServiceData
 class UpdateSubAppRequest: Codable {
-    let operatingSystem, name, environment, version: String
+    let operatingSystem, name, version: String
+    let environment: String?
     let buildNumber: String
     let device: UserDevice
 
-    init(operatingSystem: String, name: String, environment: String, version: String, buildNumber: String, device: UserDevice) {
+    init(operatingSystem: String, name: String, environment: String?, version: String, buildNumber: String, device: UserDevice) {
         self.operatingSystem = operatingSystem
         self.name = name
         self.environment = environment

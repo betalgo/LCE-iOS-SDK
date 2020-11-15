@@ -9,14 +9,30 @@ import UIKit
 
 class LaserCatManager: NSObject {
     static let shared = LaserCatManager()
-    fileprivate var enviroment = "Dev"
-    fileprivate var appKeyId = "Dev"
+    fileprivate var enviroment:String? = "Dev"
+    fileprivate var appKeyId = ""
+    fileprivate var appName: String? = nil
+    fileprivate var isLogging = false
     
     func startLogging(appKeyId: String, enviroment: String? = nil, appName: String? = nil) {
-        
+        self.appKeyId = appKeyId
+        self.enviroment = enviroment
+        self.appName = appName
+        self.isLogging = true
+        NetworkActivityLogger.shared.startLogging()
+        self.sendDeviceInfoToServer()
+    }
+    
+    func stopLogging(){
+        NetworkActivityLogger.shared.stopLogging()
+        self.isLogging = false
     }
 
-    func sendDeviceInfoToServer() {
+    fileprivate func sendDeviceInfoToServer() {
+        guard isLogging == true else {
+            return
+        }
+        
         let device = UserDevice.init(name: machineName(),
                                      userFriendlyName: UIDevice.current.name,
                                      uuid: getDeviceUUID(),
@@ -24,7 +40,7 @@ class LaserCatManager: NSObject {
                                      osVersion: getOSInfo())
         
         let updateReq = UpdateSubAppRequest.init(operatingSystem: UIDevice.current.systemName,
-                                                 name: Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String,
+                                                 name: appName ?? Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String,
                                                  environment: enviroment,
                                                  version: Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String,
                                                  buildNumber: Bundle.main.infoDictionary!["CFBundleVersion"] as! String,
@@ -50,12 +66,15 @@ class LaserCatManager: NSObject {
     }
     
     func sendRequestToServer(identifier:String, url:String, headers:[String], body:String, method:String) {
-        let requestPackage = RequestPackage(id: "",
-                                            timeStamp: "",
-                                            url: "",
-                                            headers: [],
-                                            body: "",
-                                            methodType: "")
+        guard isLogging == true else {
+            return
+        }
+        let requestPackage = RequestPackage(id: identifier,
+                                            timeStamp: "\(NSDate().timeIntervalSince1970)",
+                                            url: url,
+                                            headers: headers,
+                                            body: body,
+                                            methodType: method)
         
         let packageRequest = SendPackageRequest(requestPackage: requestPackage,
                                                 responsePackage: nil,
@@ -70,7 +89,7 @@ class LaserCatManager: NSObject {
         let postData = try! encoder.encode(packageRequest)
         print(String(data: postData, encoding: .utf8)!)
         
-        let request = self.createRequest(with: "https://lasercateyes-beta.azurewebsites.net/api/Data/SendPackage", method: "PUT", bodyData: postData)
+        let request = self.createRequest(with: "https://lasercateyes-beta.azurewebsites.net/api/Data/SendPackage", method: "POST", bodyData: postData)
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
           guard let data = data else {
@@ -84,9 +103,11 @@ class LaserCatManager: NSObject {
     }
     
     func sendResponseToServer(identifier:String, statusCode:Int, headers:[String], body:String) {
-        
+        guard isLogging == true else {
+            return
+        }
         let responsePackage = ResponsePackage(id: identifier,
-                                              timeStamp: "",
+                                              timeStamp: "\(NSDate().timeIntervalSince1970)",
                                               statusCode: statusCode,
                                               headers: headers,
                                               body: body)
@@ -104,7 +125,7 @@ class LaserCatManager: NSObject {
         let postData = try! encoder.encode(packageRequest)
         print(String(data: postData, encoding: .utf8)!)
         
-        let request = self.createRequest(with: "https://lasercateyes-beta.azurewebsites.net/api/Data/SendPackage", method: "PUT", bodyData: postData)
+        let request = self.createRequest(with: "https://lasercateyes-beta.azurewebsites.net/api/Data/SendPackage", method: "POST", bodyData: postData)
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
           guard let data = data else {

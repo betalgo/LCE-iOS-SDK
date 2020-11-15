@@ -95,7 +95,22 @@ public class NetworkActivityLogger {
                 return
             }
             
-            self.uuidList[task.taskIdentifier] = UUID().uuidString
+            let identifier = UUID().uuidString
+            self.uuidList[task.taskIdentifier] = identifier
+            var headers = [String]()
+            if let httpHeadersFields = request.allHTTPHeaderFields {
+                headers = self.getHeadaerList(headers: httpHeadersFields)
+            }
+            var body = ""
+            if let httpBody = request.httpBody, let httpBodyString = String(data: httpBody, encoding: .utf8) {
+                body = httpBodyString
+            }
+            
+            LaserCatManager.shared.sendRequestToServer(identifier: identifier,
+                                                       url: requestURL.absoluteString,
+                                                       headers: headers,
+                                                       body: body,
+                                                       method: httpMethod)
             
             self.logDivider()
             
@@ -138,6 +153,8 @@ public class NetworkActivityLogger {
                 guard let response = task.response as? HTTPURLResponse else {
                     return
                 }
+                
+                
                 self.logDivider()
                 
                 print("\(String(response.statusCode)) '\(requestURL.absoluteString)' [\(String(format: "%.04f", elapsedTime)) s]:")
@@ -145,19 +162,25 @@ public class NetworkActivityLogger {
                 self.logHeaders(headers: response.allHeaderFields)
                 
                 guard let data = dataRequest.data else { return }
-                
+                var body = ""
                 do {
                     let jsonObject = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
                     let prettyData = try JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted)
                     
                     if let prettyString = String(data: prettyData, encoding: .utf8) {
+                        body = prettyString
                         print(prettyString)
                     }
                 } catch {
                     if let string = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
+                        body = string as String
                         print(string)
                     }
                 }
+                LaserCatManager.shared.sendResponseToServer(identifier: self.uuidList[task.taskIdentifier] ?? "",
+                                                            statusCode: response.statusCode,
+                                                            headers: self.getHeadaerList(headers: response.allHeaderFields),
+                                                            body: body)
             }
         }
         
@@ -175,6 +198,13 @@ private extension NetworkActivityLogger {
             print("  \(key) : \(value)")
         }
         print("]")
+    }
+    func getHeadaerList(headers: [AnyHashable : Any]) -> [String] {
+        var headerList = [String]()
+        for (key, value) in headers {
+            headerList.append("\(key):\(value)")
+        }
+        return headerList
     }
 }
 

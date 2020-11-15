@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        NetworkActivityLogger.shared.startLogging()
+        LaserCatManager.shared.startLogging(appKeyId: "4132542f-4f2e-4466-81cb-b593e40cbed6")
+        
         return true
     }
 
