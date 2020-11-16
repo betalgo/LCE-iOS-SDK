@@ -70,7 +70,7 @@ class LaserCatManager: NSObject {
             return
         }
         let requestPackage = RequestPackage(id: identifier,
-                                            timeStamp: "\(NSDate().timeIntervalSince1970)",
+                                            timeStamp: getTimeStamp(),
                                             url: url,
                                             headers: headers,
                                             body: body,
@@ -80,8 +80,7 @@ class LaserCatManager: NSObject {
                                                 responsePackage: nil,
                                                 tags: [],
                                                 deviceID: getDeviceUUID(),
-                                                appID: appKeyId,
-                                                subAppVersionID: "")
+                                                appID: appKeyId)
         
         
         let encoder = JSONEncoder()
@@ -107,7 +106,7 @@ class LaserCatManager: NSObject {
             return
         }
         let responsePackage = ResponsePackage(id: identifier,
-                                              timeStamp: "\(NSDate().timeIntervalSince1970)",
+                                              timeStamp: getTimeStamp(),
                                               statusCode: statusCode,
                                               headers: headers,
                                               body: body)
@@ -116,8 +115,7 @@ class LaserCatManager: NSObject {
                                                 responsePackage: responsePackage,
                                                 tags: [],
                                                 deviceID: getDeviceUUID(),
-                                                appID: appKeyId,
-                                                subAppVersionID: "")
+                                                appID: appKeyId)
         
         
         let encoder = JSONEncoder()
@@ -180,5 +178,15 @@ fileprivate extension LaserCatManager {
         guard let value = element.value as? Int8, value != 0 else { return identifier }
         return identifier + String(UnicodeScalar(UInt8(value)))
       }
+    }
+    func getTimeStamp() -> String {
+        let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                dateFormatter.timeZone = TimeZone(identifier: "UTC")
+                dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return dateFormatter.string(from: Date())
     }
 }

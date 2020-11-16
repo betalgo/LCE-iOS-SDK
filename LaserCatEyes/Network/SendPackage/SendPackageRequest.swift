@@ -10,21 +10,19 @@ class SendPackageRequest: Codable {
     let requestPackage: RequestPackage?
     let responsePackage: ResponsePackage?
     let tags: [String]
-    let deviceID, appID, subAppVersionID: String
+    let deviceID, appID: String
 
     enum CodingKeys: String, CodingKey {
         case requestPackage, responsePackage, tags
         case deviceID = "deviceId"
         case appID = "appId"
-        case subAppVersionID = "subAppVersionId"
     }
 
-    init(requestPackage: RequestPackage?, responsePackage: ResponsePackage?, tags: [String], deviceID: String, appID: String, subAppVersionID: String) {
+    init(requestPackage: RequestPackage?, responsePackage: ResponsePackage?, tags: [String], deviceID: String, appID: String) {
         self.requestPackage = requestPackage
         self.responsePackage = responsePackage
         self.tags = tags
         self.deviceID = deviceID
         self.appID = appID
-        self.subAppVersionID = subAppVersionID
     }
 }
