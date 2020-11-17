@@ -1,4 +1,5 @@
 # LCE-iOS-SDK
+<img src="http://lasercateyes-portal-beta.azurewebsites.net/media/logos/logo-letter-2.png" width="50%">
 
 #### To Implement:
 
@@ -17,5 +18,9 @@ Note: You must have Alamofire in your project.
 1. Create an account from [Laser-Cat-Eyes web portal]
 2. Create an app
 3. After the hitting save button you should be able to see your **KEY ID**
+
+
+
+<img src="http://www.betalgo.com/img/logo-dark.png" width="10px"> Betalgo
 
    [Laser-Cat-Eyes web portal]: <https://lasercateyes-portal-beta.azurewebsites.net/auth/login>
