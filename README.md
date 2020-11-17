@@ -2,7 +2,7 @@
 
 #### To Implement:
 
-1. Download repository.
+1. Download lastest release.
 2. Copy Network folder to your project.
 3. In ``AppDelegate``'s ``didFinishLaunchingWithOptions`` method add 
 ```
