@@ -94,7 +94,6 @@
 				AA216E5725508A3B00BB8D76 /* SceneDelegate.swift */,
 				AAA681A82561AEEE00EAE65C /* Network */,
 				AA216E5925508A3B00BB8D76 /* ViewController.swift */,
-				AAA6819E25619F4B00EAE65C /* NetworkActivityLogger.swift */,
 				AA216E5B25508A3B00BB8D76 /* Main.storyboard */,
 				AA216E5E25508A3D00BB8D76 /* Assets.xcassets */,
 				AA216E6025508A3D00BB8D76 /* LaunchScreen.storyboard */,
@@ -106,6 +105,7 @@
 		AAA681A82561AEEE00EAE65C /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				AAA6819E25619F4B00EAE65C /* NetworkActivityLogger.swift */,
 				AAA68198256165A500EAE65C /* LaserCatManager.swift */,
 				AAA681B62561B0F300EAE65C /* UpdateSubApp */,
 				AAA681A92561AF0700EAE65C /* SendPackage */,

@@ -207,7 +207,3 @@ private extension NetworkActivityLogger {
         return headerList
     }
 }
-
-private extension NetworkActivityLogger {
-    
-}
