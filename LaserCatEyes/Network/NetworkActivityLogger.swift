@@ -161,7 +161,14 @@ public class NetworkActivityLogger {
                 
                 self.logHeaders(headers: response.allHeaderFields)
                 
-                guard let data = dataRequest.data else { return }
+                guard let data = dataRequest.data else {
+                    LaserCatManager.shared.sendResponseToServer(identifier: self.uuidList[task.taskIdentifier] ?? "",
+                                                                statusCode: response.statusCode,
+                                                                headers: self.getHeadaerList(headers: response.allHeaderFields),
+                                                                body: "")
+                    return
+                }
+
                 var body = ""
                 do {
                     let jsonObject = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
