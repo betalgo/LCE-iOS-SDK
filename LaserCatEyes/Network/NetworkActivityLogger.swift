@@ -106,7 +106,7 @@ public class NetworkActivityLogger {
                 body = httpBodyString
             }
             
-            LaserCatManager.shared.sendRequestToServer(identifier: identifier,
+            LaserCatEyes.shared.sendRequestToServer(identifier: identifier,
                                                        url: requestURL.absoluteString,
                                                        headers: headers,
                                                        body: body,
@@ -162,7 +162,7 @@ public class NetworkActivityLogger {
                 self.logHeaders(headers: response.allHeaderFields)
                 
                 guard let data = dataRequest.data else {
-                    LaserCatManager.shared.sendResponseToServer(identifier: self.uuidList[task.taskIdentifier] ?? "",
+                    LaserCatEyes.shared.sendResponseToServer(identifier: self.uuidList[task.taskIdentifier] ?? "",
                                                                 statusCode: response.statusCode,
                                                                 headers: self.getHeadaerList(headers: response.allHeaderFields),
                                                                 body: "")
@@ -184,7 +184,7 @@ public class NetworkActivityLogger {
                         print(string)
                     }
                 }
-                LaserCatManager.shared.sendResponseToServer(identifier: self.uuidList[task.taskIdentifier] ?? "",
+                LaserCatEyes.shared.sendResponseToServer(identifier: self.uuidList[task.taskIdentifier] ?? "",
                                                             statusCode: response.statusCode,
                                                             headers: self.getHeadaerList(headers: response.allHeaderFields),
                                                             body: body)

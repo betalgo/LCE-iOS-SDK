@@ -13,7 +13,7 @@
 		AA216E5D25508A3B00BB8D76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA216E5B25508A3B00BB8D76 /* Main.storyboard */; };
 		AA216E5F25508A3D00BB8D76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA216E5E25508A3D00BB8D76 /* Assets.xcassets */; };
 		AA216E6225508A3D00BB8D76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA216E6025508A3D00BB8D76 /* LaunchScreen.storyboard */; };
-		AAA68199256165A500EAE65C /* LaserCatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA68198256165A500EAE65C /* LaserCatManager.swift */; };
+		AAA68199256165A500EAE65C /* LaserCatEyes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA68198256165A500EAE65C /* LaserCatEyes.swift */; };
 		AAA6819F25619F4B00EAE65C /* NetworkActivityLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6819E25619F4B00EAE65C /* NetworkActivityLogger.swift */; };
 		AAA681A42561AEE800EAE65C /* ResponsePackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA681A12561AEE800EAE65C /* ResponsePackage.swift */; };
 		AAA681A52561AEE800EAE65C /* RequestPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA681A22561AEE800EAE65C /* RequestPackage.swift */; };
@@ -33,7 +33,7 @@
 		AA216E5E25508A3D00BB8D76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA216E6125508A3D00BB8D76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA216E6325508A3D00BB8D76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAA68198256165A500EAE65C /* LaserCatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserCatManager.swift; sourceTree = "<group>"; };
+		AAA68198256165A500EAE65C /* LaserCatEyes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserCatEyes.swift; sourceTree = "<group>"; };
 		AAA6819E25619F4B00EAE65C /* NetworkActivityLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityLogger.swift; sourceTree = "<group>"; };
 		AAA681A12561AEE800EAE65C /* ResponsePackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponsePackage.swift; sourceTree = "<group>"; };
 		AAA681A22561AEE800EAE65C /* RequestPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPackage.swift; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				AAA6819E25619F4B00EAE65C /* NetworkActivityLogger.swift */,
-				AAA68198256165A500EAE65C /* LaserCatManager.swift */,
+				AAA68198256165A500EAE65C /* LaserCatEyes.swift */,
 				AAA681B62561B0F300EAE65C /* UpdateSubApp */,
 				AAA681A92561AF0700EAE65C /* SendPackage */,
 			);
@@ -246,7 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAA68199256165A500EAE65C /* LaserCatManager.swift in Sources */,
+				AAA68199256165A500EAE65C /* LaserCatEyes.swift in Sources */,
 				AAA681B92561B0F300EAE65C /* UpdateSubAppRequest.swift in Sources */,
 				AAA681BA2561B0F300EAE65C /* UserDevice.swift in Sources */,
 				AA216E5A25508A3B00BB8D76 /* ViewController.swift in Sources */,

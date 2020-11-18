@@ -7,8 +7,8 @@
 
 import UIKit
 
-class LaserCatManager: NSObject {
-    static let shared = LaserCatManager()
+class LaserCatEyes: NSObject {
+    static let shared = LaserCatEyes()
     fileprivate var enviroment:String? = "Dev"
     fileprivate var appKeyId = ""
     fileprivate var appName: String? = nil
@@ -153,7 +153,7 @@ class LaserCatManager: NSObject {
     }
 }
 
-fileprivate extension LaserCatManager {
+fileprivate extension LaserCatEyes {
     func getOSInfo()->String {
         let os = ProcessInfo().operatingSystemVersion
         return String(os.majorVersion) + "." + String(os.minorVersion) + "." + String(os.patchVersion)
