@@ -84,17 +84,13 @@ class LaserCatEyes: NSObject {
             print(String(describing: error))
             return
           }
-            self.deviceId = ""
+            let responseModel = try? JSONDecoder().decode(UpdateSubAppResponse.self, from: data)
+            self.deviceId = responseModel?.deviceId
           print(String(data: data, encoding: .utf8)!)
         }
 
         task.resume()
     }
-    
-    public func tolga(completion:(String)->(String)) {
-    }
-    
-    
     
     func sendRequestToServer(identifier:String, url:String, headers:[String], body:String, method:String) {
         guard isLogging == true else {
@@ -179,8 +175,9 @@ class LaserCatEyes: NSObject {
         request.addValue("en-US", forHTTPHeaderField: "Alg-Culture")
         request.addValue(getDeviceUUID(), forHTTPHeaderField: "Alg-Device-UUId")
         request.addValue(appKey, forHTTPHeaderField: "Alg-App-Key")
-        request.addValue(appKey, forHTTPHeaderField: "Alg-Device-Id")
-        
+        if let deviceId = deviceId {
+            request.addValue(deviceId, forHTTPHeaderField: "Alg-Device-Id")
+        }
         request.httpMethod = method
         request.httpBody = bodyData
         return request

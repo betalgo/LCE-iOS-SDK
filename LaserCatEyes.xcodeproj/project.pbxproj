@@ -13,6 +13,7 @@
 		AA216E5D25508A3B00BB8D76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA216E5B25508A3B00BB8D76 /* Main.storyboard */; };
 		AA216E5F25508A3D00BB8D76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA216E5E25508A3D00BB8D76 /* Assets.xcassets */; };
 		AA216E6225508A3D00BB8D76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA216E6025508A3D00BB8D76 /* LaunchScreen.storyboard */; };
+		AA8199962569DAFD006D5F45 /* UpdateSubAppResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8199952569DAFD006D5F45 /* UpdateSubAppResponse.swift */; };
 		AAA68199256165A500EAE65C /* LaserCatEyes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA68198256165A500EAE65C /* LaserCatEyes.swift */; };
 		AAA6819F25619F4B00EAE65C /* NetworkActivityLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6819E25619F4B00EAE65C /* NetworkActivityLogger.swift */; };
 		AAA681A42561AEE800EAE65C /* ResponsePackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA681A12561AEE800EAE65C /* ResponsePackage.swift */; };
@@ -33,6 +34,7 @@
 		AA216E5E25508A3D00BB8D76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA216E6125508A3D00BB8D76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA216E6325508A3D00BB8D76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA8199952569DAFD006D5F45 /* UpdateSubAppResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateSubAppResponse.swift; sourceTree = "<group>"; };
 		AAA68198256165A500EAE65C /* LaserCatEyes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserCatEyes.swift; sourceTree = "<group>"; };
 		AAA6819E25619F4B00EAE65C /* NetworkActivityLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkActivityLogger.swift; sourceTree = "<group>"; };
 		AAA681A12561AEE800EAE65C /* ResponsePackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponsePackage.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				AAA681B72561B0F300EAE65C /* UpdateSubAppRequest.swift */,
 				AAA681B82561B0F300EAE65C /* UserDevice.swift */,
+				AA8199952569DAFD006D5F45 /* UpdateSubAppResponse.swift */,
 			);
 			path = UpdateSubApp;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				AA216E5A25508A3B00BB8D76 /* ViewController.swift in Sources */,
 				AA216E5625508A3B00BB8D76 /* AppDelegate.swift in Sources */,
 				AAA681A42561AEE800EAE65C /* ResponsePackage.swift in Sources */,
+				AA8199962569DAFD006D5F45 /* UpdateSubAppResponse.swift in Sources */,
 				AA216E5825508A3B00BB8D76 /* SceneDelegate.swift in Sources */,
 				AAA6819F25619F4B00EAE65C /* NetworkActivityLogger.swift in Sources */,
 				AAA681A52561AEE800EAE65C /* RequestPackage.swift in Sources */,
