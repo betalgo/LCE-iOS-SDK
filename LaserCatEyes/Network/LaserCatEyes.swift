@@ -8,14 +8,39 @@
 import UIKit
 
 class LaserCatEyes: NSObject {
+    
+    enum ServicePaths:String {
+        case updateSubApp
+        case sendPackage
+        func link() -> String {
+            let hostName = "http://data-beta.lasercateyes.com/"
+            switch self {
+            case .updateSubApp:
+                return hostName + "api/App/UpdateSubApp"
+            case .sendPackage:
+                return hostName + "api/Data/SendPackage"
+            }
+        }
+        func method() -> String {
+            switch self {
+            case .updateSubApp:
+                return "PUT"
+            case .sendPackage:
+                return "POST"
+            }
+        }
+    }
+    
     static let shared = LaserCatEyes()
     fileprivate var enviroment:String? = "Dev"
-    fileprivate var appKeyId = ""
+    fileprivate var appKey = ""
     fileprivate var appName: String? = nil
     fileprivate var isLogging = false
+    fileprivate var deviceId: String? = nil
     
-    func startLogging(appKeyId: String, enviroment: String? = nil, appName: String? = nil) {
-        self.appKeyId = appKeyId
+    
+    func startLogging(appKey: String, enviroment: String? = nil, appName: String? = nil) {
+        self.appKey = appKey
         self.enviroment = enviroment
         self.appName = appName
         self.isLogging = true
@@ -52,18 +77,24 @@ class LaserCatEyes: NSObject {
         let postData = try! encoder.encode(updateReq)
         print(String(data: postData, encoding: .utf8)!)
         
-        let request = self.createRequest(with: "https://lasercateyes-beta.azurewebsites.net/api/App/UpdateSubApp", method: "PUT", bodyData: postData)
+        let request = self.createRequest(with: ServicePaths.updateSubApp.link(), method: ServicePaths.updateSubApp.method(), bodyData: postData)
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
           guard let data = data else {
             print(String(describing: error))
             return
           }
+            self.deviceId = ""
           print(String(data: data, encoding: .utf8)!)
         }
 
         task.resume()
     }
+    
+    public func tolga(completion:(String)->(String)) {
+    }
+    
+    
     
     func sendRequestToServer(identifier:String, url:String, headers:[String], body:String, method:String) {
         guard isLogging == true else {
@@ -79,8 +110,9 @@ class LaserCatEyes: NSObject {
         let packageRequest = SendPackageRequest(requestPackage: requestPackage,
                                                 responsePackage: nil,
                                                 tags: [],
-                                                deviceID: getDeviceUUID(),
-                                                appID: appKeyId)
+                                                deviceUUId: getDeviceUUID(),
+                                                appId: appKey,
+                                                deviceId: deviceId)
         
         
         let encoder = JSONEncoder()
@@ -88,7 +120,7 @@ class LaserCatEyes: NSObject {
         let postData = try! encoder.encode(packageRequest)
         print(String(data: postData, encoding: .utf8)!)
         
-        let request = self.createRequest(with: "https://lasercateyes-beta.azurewebsites.net/api/Data/SendPackage", method: "POST", bodyData: postData)
+        let request = self.createRequest(with: ServicePaths.sendPackage.link(), method: ServicePaths.sendPackage.method(), bodyData: postData)
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
           guard let data = data else {
@@ -114,8 +146,9 @@ class LaserCatEyes: NSObject {
         let packageRequest = SendPackageRequest(requestPackage: nil,
                                                 responsePackage: responsePackage,
                                                 tags: [],
-                                                deviceID: getDeviceUUID(),
-                                                appID: appKeyId)
+                                                deviceUUId: getDeviceUUID(),
+                                                appId: appKey,
+                                                deviceId: deviceId)
         
         
         let encoder = JSONEncoder()
@@ -123,7 +156,7 @@ class LaserCatEyes: NSObject {
         let postData = try! encoder.encode(packageRequest)
         print(String(data: postData, encoding: .utf8)!)
         
-        let request = self.createRequest(with: "https://lasercateyes-beta.azurewebsites.net/api/Data/SendPackage", method: "POST", bodyData: postData)
+        let request = self.createRequest(with: ServicePaths.sendPackage.link(), method: ServicePaths.sendPackage.method(), bodyData: postData)
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
           guard let data = data else {
@@ -144,8 +177,9 @@ class LaserCatEyes: NSObject {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("54A247B0-D5EC-4BA0-8E1D-9105DCC54F13", forHTTPHeaderField: "Alg-Client-Id")
         request.addValue("en-US", forHTTPHeaderField: "Alg-Culture")
-        request.addValue(getDeviceUUID(), forHTTPHeaderField: "Alg-Device-Id")
-        request.addValue(appKeyId, forHTTPHeaderField: "Alg-App-Key-Id")
+        request.addValue(getDeviceUUID(), forHTTPHeaderField: "Alg-Device-UUId")
+        request.addValue(appKey, forHTTPHeaderField: "Alg-App-Key")
+        request.addValue(appKey, forHTTPHeaderField: "Alg-Device-Id")
         
         request.httpMethod = method
         request.httpBody = bodyData
