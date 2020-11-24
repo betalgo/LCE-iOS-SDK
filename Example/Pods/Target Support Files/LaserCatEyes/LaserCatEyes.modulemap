@@ -1,0 +1,6 @@
+framework module LaserCatEyes {
+  umbrella header "LaserCatEyes-umbrella.h"
+
+  export *
+  module * { export * }
+}

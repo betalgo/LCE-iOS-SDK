@@ -1,0 +1,36 @@
+{
+  "name": "LaserCatEyes",
+  "version": "1.0.2",
+  "summary": "Alamofire extension to log responses and requests.",
+  "description": "Alamofire extension to log responses and requests.",
+  "homepage": "\"https://lasercateyes-portal-beta.azurewebsites.net",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Hakki": "hakkiyigityener@hotmail.com"
+  },
+  "source": {
+    "git": "https://github.com/betalgo/LCE-iOS-SDK.git",
+    "tag": "1.0.2"
+  },
+  "platforms": {
+    "ios": "10.0",
+    "osx": "10.12",
+    "tvos": "10.0",
+    "watchos": "3.0"
+  },
+  "swift_versions": [
+    "5.1",
+    "5.2",
+    "5.3"
+  ],
+  "source_files": "LaserCatEyes/Classes/**/*",
+  "dependencies": {
+    "Alamofire": [
+      "~> 5.0"
+    ]
+  },
+  "swift_version": "5.3"
+}

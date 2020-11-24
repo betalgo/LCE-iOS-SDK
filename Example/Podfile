@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'LaserCatEyes_Example' do
+  pod 'LaserCatEyes', :path => '../'
+
+  target 'LaserCatEyes_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

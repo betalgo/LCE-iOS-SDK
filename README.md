@@ -1,26 +1,29 @@
-# LCE-iOS-SDK
-<img src="http://lasercateyes-portal-beta.azurewebsites.net/media/logos/logo-letter-2.png" width="50%">
+# LaserCatEyes
 
-#### To Implement:
+[![CI Status](https://img.shields.io/travis/HakkiYigitYener/LaserCatEyes.svg?style=flat)](https://travis-ci.org/HakkiYigitYener/LaserCatEyes)
+[![Version](https://img.shields.io/cocoapods/v/LaserCatEyes.svg?style=flat)](https://cocoapods.org/pods/LaserCatEyes)
+[![License](https://img.shields.io/cocoapods/l/LaserCatEyes.svg?style=flat)](https://cocoapods.org/pods/LaserCatEyes)
+[![Platform](https://img.shields.io/cocoapods/p/LaserCatEyes.svg?style=flat)](https://cocoapods.org/pods/LaserCatEyes)
 
-1. Download lastest release.
-2. Copy Network folder to your project.
-3. In ``AppDelegate``'s ``didFinishLaunchingWithOptions`` method add 
+## Example
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Requirements
+
+## Installation
+
+LaserCatEyes is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'LaserCatEyes'
 ```
-LaserCatManager.shared.startLogging(appKeyId: {APP_ID_KEY})
-```
-##### To Stop Logging:
-1. Call 'LaserCatManager.shared.stopLogging()' method.
 
-Note: You must have Alamofire in your project.
+## Author
 
-#### Hot to get your APP_ID_KEY :
-1. Create an account from [Laser-Cat-Eyes web portal]
-2. Create an app
-3. After the hitting save button you should be able to see your **KEY ID**
+HakkiYigitYener, hyener@invio.com
 
+## License
 
-
-<img src="http://www.betalgo.com/img/logo-dark.png" width="10px"> Betalgo
-
-   [Laser-Cat-Eyes web portal]: <https://lasercateyes-portal-beta.azurewebsites.net/auth/login>
+LaserCatEyes is available under the MIT license. See the LICENSE file for more info.
