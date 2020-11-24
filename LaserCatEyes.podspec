@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LaserCatEyes'
-  s.version          = '1.0.5'
+  s.version          = '1.0.6'
   s.summary          = 'Alamofire extension to log responses and requests.'
 
 # This description is used to generate tags and improve search results.
@@ -18,10 +18,10 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-  Alamofire extension to log responses and requests.
+  Alamofire extension to log responses and requests to Laser Cat Eyes Service.
                        DESC
 
-  s.homepage         = '"https://lasercateyes-portal-beta.azurewebsites.net'
+  s.homepage         = 'https://lasercateyes-portal-beta.azurewebsites.net'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "Hakki" => "hakkiyigityener@hotmail.com" }
   s.source           = { :git => "https://github.com/betalgo/LCE-iOS-SDK.git", :tag => s.version }
