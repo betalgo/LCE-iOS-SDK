@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (5.4.0)
-  - LaserCatEyes (1.0.6):
+  - LaserCatEyes (1.0.7):
     - Alamofire (~> 5.0)
 
 DEPENDENCIES:
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
-  LaserCatEyes: bd951f44707d86061ae03604813678dccc0691ad
+  LaserCatEyes: 8a3de77e19e44832a2403a9a19a563e65a5cdd62
 
 PODFILE CHECKSUM: a528de5aca2510663661823ba759f636fccf51a3
 

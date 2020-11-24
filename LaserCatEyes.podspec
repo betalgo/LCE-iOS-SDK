@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LaserCatEyes'
-  s.version          = '1.0.6'
+  s.version          = '1.0.7'
   s.summary          = 'Alamofire extension to log responses and requests.'
 
 # This description is used to generate tags and improve search results.
@@ -29,7 +29,6 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '10.0'
   s.tvos.deployment_target = '10.0'
-  s.watchos.deployment_target = '3.0'
 
   s.swift_versions = ['5.1', '5.2', '5.3']
   
