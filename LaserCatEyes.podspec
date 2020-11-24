@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LaserCatEyes'
-  s.version          = '1.0.3'
+  s.version          = '1.0.4'
   s.summary          = 'Alamofire extension to log responses and requests.'
 
 # This description is used to generate tags and improve search results.
@@ -41,6 +41,6 @@ Pod::Spec.new do |s|
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'UIKit'
   s.dependency 'Alamofire', '~> 5.0'
 end
