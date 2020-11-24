@@ -13,7 +13,7 @@ class LaserCatEyes: NSObject {
         case updateSubApp
         case sendPackage
         func link() -> String {
-            let hostName = "http://data-beta.lasercateyes.com/"
+            let hostName = "https://data-beta.lasercateyes.com/"
             switch self {
             case .updateSubApp:
                 return hostName + "api/App/UpdateSubApp"
