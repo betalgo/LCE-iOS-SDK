@@ -22,7 +22,7 @@ pod 'LaserCatEyes'
 
 ## Author
 
-HakkiYigitYener, hyener@invio.com
+Hakki Yigit Yener, hakkiyigityener@hotmail.com
 
 ## License
 
