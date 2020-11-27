@@ -1,5 +1,5 @@
 # LaserCatEyes
-
+[![Test](https://repository-images.githubusercontent.com/305744454/59fff700-30f5-11eb-8a67-d706102bf31c)](https://repository-images.githubusercontent.com/305744454/59fff700-30f5-11eb-8a67-d706102bf31c)
 [![CI Status](https://img.shields.io/travis/HakkiYigitYener/LaserCatEyes.svg?style=flat)](https://travis-ci.org/HakkiYigitYener/LaserCatEyes)
 [![Version](https://img.shields.io/cocoapods/v/LaserCatEyes.svg?style=flat)](https://cocoapods.org/pods/LaserCatEyes)
 [![License](https://img.shields.io/cocoapods/l/LaserCatEyes.svg?style=flat)](https://cocoapods.org/pods/LaserCatEyes)
@@ -22,7 +22,7 @@ pod 'LaserCatEyes'
 
 ## Author
 
-Hakki Yigit Yener, hakkiyigityener@hotmail.com
+Betalgo, mail@betalgo.com
 
 ## License
 
