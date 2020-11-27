@@ -12,19 +12,19 @@
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'LaserCatEyes'
+  pod 'LaserCatEyes'
 ```
 
 2. In ``AppDelegate``'s ``didFinishLaunchingWithOptions`` method add 
 ```
-LaserCatManager.shared.startLogging(appKeyId: {APP_ID_KEY})
+  LaserCatManager.shared.startLogging(appKeyId: {APP_ID_KEY})
 ```
 
 3. If you want to stop Logging call 
 
-```
-LaserCatManager.shared.stopLogging()
-```
+  ```
+  LaserCatManager.shared.stopLogging()
+  ```
 
 Note: For this sdk you must have Alamofire in your project.
 
@@ -39,7 +39,3 @@ Note: For this sdk you must have Alamofire in your project.
 ## Author
 
 <img src="http://www.betalgo.com/img/logo-dark.png" width="10px"> Betalgo, mail@betalgo.com
-
-## License
-
-LaserCatEyes is available under the MIT license. See the LICENSE file for more info.
