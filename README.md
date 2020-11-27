@@ -28,21 +28,17 @@ LaserCatManager.shared.stopLogging()
 
 Note: For this sdk you must have Alamofire in your project.
 
-#### Hot to get your APP_ID_KEY :
+#### Hot to get your APP_KEY :
 1. Create an account from [Laser-Cat-Eyes web portal]
 2. Create an app
-3. After the hitting save button you should be able to see your **KEY ID**
+3. After the hitting save button you should be able to see your **APP KEY**
 
-
-
-<img src="http://www.betalgo.com/img/logo-dark.png" width="10px"> Betalgo
-
-   [Laser-Cat-Eyes web portal]: <https://portal-beta.lasercateyes.com/auth/login>
+[Laser-Cat-Eyes web portal]: <https://portal-beta.lasercateyes.com/auth/login>
 
 
 ## Author
 
-Betalgo, mail@betalgo.com
+<img src="http://www.betalgo.com/img/logo-dark.png" width="10px"> Betalgo, mail@betalgo.com
 
 ## License
 
