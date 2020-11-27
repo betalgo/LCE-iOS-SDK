@@ -6,8 +6,13 @@
 [![License](https://img.shields.io/cocoapods/l/LaserCatEyes.svg?style=flat)](https://cocoapods.org/pods/LaserCatEyes)
 [![Platform](https://img.shields.io/cocoapods/p/LaserCatEyes.svg?style=flat)](https://cocoapods.org/pods/LaserCatEyes)
 
-## Installation & Implementation 
 
+#### Hot to get your APP_KEY :
+1. Create an account from [Laser-Cat-Eyes web portal]
+2. Create an app
+3. After the hitting save button you should be able to see your **APP KEY**
+
+## Installation & Implementation 
 1. LaserCatEyes is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
@@ -27,11 +32,6 @@ it, simply add the following line to your Podfile:
   ```
 
 Note: For this sdk you must have Alamofire in your project.
-
-#### Hot to get your APP_KEY :
-1. Create an account from [Laser-Cat-Eyes web portal]
-2. Create an app
-3. After the hitting save button you should be able to see your **APP KEY**
 
 [Laser-Cat-Eyes web portal]: <https://portal-beta.lasercateyes.com/auth/login>
 
