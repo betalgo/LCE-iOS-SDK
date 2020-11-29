@@ -94,9 +94,6 @@ public class NetworkActivityLogger {
             if let filterPredicate = self.filterPredicate, filterPredicate.evaluate(with: request) {
                 return
             }
-            
-            let identifier = UUID().uuidString
-            self.uuidList[task.taskIdentifier] = identifier
             var headers = [String]()
             if let httpHeadersFields = request.allHTTPHeaderFields {
                 headers = self.getHeadaerList(headers: httpHeadersFields)
@@ -105,8 +102,7 @@ public class NetworkActivityLogger {
             if let httpBody = request.httpBody, let httpBodyString = String(data: httpBody, encoding: .utf8) {
                 body = httpBodyString
             }
-            
-            LaserCatEyes.shared.sendRequestToServer(identifier: identifier,
+            LaserCatEyes.shared.sendRequestToServer(identifier: self.createUUID(for: task.taskIdentifier),
                                                        url: requestURL.absoluteString,
                                                        headers: headers,
                                                        body: body,
@@ -162,7 +158,7 @@ public class NetworkActivityLogger {
                 self.logHeaders(headers: response.allHeaderFields)
                 
                 guard let data = dataRequest.data else {
-                    LaserCatEyes.shared.sendResponseToServer(identifier: self.uuidList[task.taskIdentifier] ?? "",
+                    LaserCatEyes.shared.sendResponseToServer(identifier: self.createUUID(for: task.taskIdentifier),
                                                                 statusCode: response.statusCode,
                                                                 headers: self.getHeadaerList(headers: response.allHeaderFields),
                                                                 body: "")
@@ -184,7 +180,7 @@ public class NetworkActivityLogger {
                         print(string)
                     }
                 }
-                LaserCatEyes.shared.sendResponseToServer(identifier: self.uuidList[task.taskIdentifier] ?? "",
+                LaserCatEyes.shared.sendResponseToServer(identifier: self.createUUID(for: task.taskIdentifier),
                                                             statusCode: response.statusCode,
                                                             headers: self.getHeadaerList(headers: response.allHeaderFields),
                                                             body: body)
@@ -212,5 +208,16 @@ private extension NetworkActivityLogger {
             headerList.append("\(key):\(value)")
         }
         return headerList
+    }
+    
+    func createUUID(for taskIdentifier:Int) -> String {
+        if let taskUUID = self.uuidList[taskIdentifier] {
+            return taskUUID
+        }
+        else {
+            let identifier = UUID().uuidString
+            self.uuidList[taskIdentifier] = identifier
+            return identifier
+        }
     }
 }
