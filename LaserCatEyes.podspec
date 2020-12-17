@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'LaserCatEyes'
-  s.version          = '1.0.11'
+  s.version          = '1.0.12'
   s.summary          = 'Alamofire extension to log responses and requests.'
   s.description      = <<-DESC
   Alamofire extension to log responses and requests to Laser Cat Eyes Service.
