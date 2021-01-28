@@ -13,7 +13,7 @@ public class LaserCatEyes: NSObject {
         case updateSubApp
         case sendPackage
         func link() -> String {
-            let hostName = "https://data-beta.lasercateyes.com/"
+            let hostName = "https://data.lasercateyes.com/"
             switch self {
             case .updateSubApp:
                 return hostName + "api/App/UpdateSubApp"
@@ -171,7 +171,7 @@ public class LaserCatEyes: NSObject {
         var request = URLRequest(url: URL(string: url)!,timeoutInterval: Double.infinity)
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("54A247B0-D5EC-4BA0-8E1D-9105DCC54F13", forHTTPHeaderField: "Alg-Client-Id")
+        request.addValue("8d0b85df-e212-4126-9c3a-ac4eeb98b0b1", forHTTPHeaderField: "Alg-Client-Id")
         request.addValue("en-US", forHTTPHeaderField: "Alg-Culture")
         request.addValue(getDeviceUUID(), forHTTPHeaderField: "Alg-Device-UUId")
         request.addValue(appKey, forHTTPHeaderField: "Alg-App-Key")
