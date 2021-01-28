@@ -7,7 +7,7 @@
 
 Laser Cat Eyes is a network monitoring tool that helps mobile app developers diagnose issues between their apps and backend services.
 
-#### Hot to get your APP_KEY :
+#### Hot to get your APP KEY :
 1. Create an account from [Laser-Cat-Eyes web portal]
 2. Create an app
 3. After the hitting save button you should be able to see your **APP KEY**
@@ -22,7 +22,7 @@ it, simply add the following line to your Podfile:
 
 2. In ``AppDelegate``'s ``didFinishLaunchingWithOptions`` method add 
 ```
-  LaserCatManager.shared.startLogging(appKeyId: {APP_ID_KEY})
+  LaserCatManager.shared.startLogging(appKeyId: {APP KEY})
 ```
 
 3. If you want to stop Logging call 
